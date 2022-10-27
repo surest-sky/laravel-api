@@ -169,7 +169,7 @@ class ExceptionReport
      */
     public function report()
     {
-        $reportMessage = $this->doReport[$this->report];
+        $reportMessage = data_get($this->doReport, $this->report, $this->doReport[Exception::class]);
 
         $httpCode = data_get($reportMessage, 'http_code', data_get($this->exception, 'status'));
 
